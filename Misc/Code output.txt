@@ -1,0 +1,166 @@
+"C:\Users\nader\OneDrive\Documents\OMSCS - GA TECH\@Machine Learning\ASSIGNMENT 4\.venv\Scripts\python.exe" "C:\Users\nader\OneDrive\Documents\Downloads\FortitudeRe\Fortitude Re Opus.py" 
+======================================================================
+FORTITUDE RE: DJ BASIN INVESTMENT MODEL (ENHANCED CRITIQUE)
+======================================================================
+
+SECTION 1: BASE CASE VALIDATION
+----------------------------------------------------------------------
+Reconstructed Yield Curve: ['26.9%', '26.6%', '25.1%', '23.3%', '19.3%', '16.4%', '14.3%', '12.6%', '11.3%', '10.2%']
+10-Year Sum: 1.86x  |  Average: 18.6%
+
+Co-Invest Perspective ($195.0MM):
+  Base Case IRR:      16.9% (Deck Target: 17.6%)
+  Base Case ROI:      1.99x (Deck Target: 1.94x)
+  Payback Period:     4.1 years (Deck: <5 years)
+
+======================================================================
+SECTION 2: MONTE CARLO RISK ANALYSIS (50000 Simulations)
+----------------------------------------------------------------------
+Simulating: Commodity prices + Timing delays + Decline curve steepening
+
+Commodity Price Simulation Statistics:
+  Oil Avg Factor:     1.00x (σ=0.21)
+  Gas Avg Factor:     1.02x (σ=0.24)
+  NGL Avg Factor:     1.00x (σ=0.22)
+  Blended Avg:        1.01x
+
+Timing Risk Statistics:
+  Average Delay:      0.19 years
+  Delay Std Dev:      0.16 years
+  Max Delay:          0.78 years
+  % with >1yr Delay:  0.0%
+
+Decline Curve Risk Statistics:
+  Average b-factor:   0.87 (base: 0.90)
+  b-factor Std Dev:   0.15
+  % Steep Decline:    12.9% (b < 0.7)
+  % Severe Steep:     0.7% (b < 0.5)
+
+Combined Risk Metrics:
+  Probability of Loss:  11.8%
+  Avg Loss (if loss):   $25.9MM
+  95% VaR:              $25.1MM
+  99% VaR:              $58.1MM
+
+Loss Attribution (when losses occur):
+  Price-driven:       27.0%
+  Timing-driven:      0.0%
+  Decline-driven:     4.0%
+  Combined factors:   69.0%
+
+Return Distribution:
+  10th Percentile IRR:  -0.6%
+  25th Percentile IRR:  3.1%
+  Median IRR:           7.3%
+  75th Percentile IRR:  12.0%
+  90th Percentile IRR:  17.5%
+
+======================================================================
+SECTION 3: SCENARIO ANALYSIS
+----------------------------------------------------------------------
+
+3A. COMMODITY PRICE SCENARIOS (Base Decline Curve)
+Scenario                          IRR      ROI    Payback
+----------------------------------------------------------
+Strip (Base)                    16.9%    1.99x      4.1yr
+Upside ($70/$3.25)              20.0%    2.19x      3.6yr
+Mild Stress (-15%)              11.6%    1.64x      5.1yr
+Severe Stress (-30%)             6.4%    1.34x      6.9yr
+Gas Collapse                    12.0%    1.67x      5.4yr
+2020-Style Crash                 9.7%    1.64x      6.1yr
+Sustained Low ($50/bbl)          6.7%    1.36x      6.7yr
+
+3B. TIMING DELAY SCENARIOS (Strip Pricing)
+Scenario                          IRR      ROI    Payback
+----------------------------------------------------------
+No Delay (Base)                 16.9%    1.99x      4.1yr
+6-Month Delay                    6.2%    1.34x      7.9yr
+1-Year Delay                     5.3%    1.32x      8.3yr
+2-Year Delay                     4.5%    1.30x      8.7yr
+3-Year Delay (Severe)            3.8%    1.27x      9.1yr
+
+3C. DECLINE CURVE STEEPENING SCENARIOS (Strip Pricing)
+Scenario                       b-factor      IRR      ROI    10Y Sum
+--------------------------------------------------------------------
+Type Curve (Base)                  0.90    16.9%    1.99x      1.86x
+Slight Steepening                  0.75    17.0%    1.99x      1.86x
+Moderate Steepening                0.60    13.5%    1.70x      1.58x
+Severe Steepening                  0.45    12.1%    1.59x      1.47x
+Near-Exponential                   0.30    10.5%    1.49x      1.37x
+Better Than Expected               1.10    16.7%    1.99x      1.86x
+
+3D. COMBINED STRESS SCENARIOS (Multiple Risk Factors)
+Scenario                                 IRR      ROI    Payback
+-----------------------------------------------------------------
+Mild Price + Timing                     1.3%    1.07x      9.6yr
+Moderate Price + Steep Decline          7.5%    1.38x      6.2yr
+Price + Timing + Decline               -0.5%    0.97x      >10yr
+Severe Combined Stress                 -3.5%    0.81x      >10yr
+Worst Case (All Risks)                 -7.2%    0.64x      >10yr
+Upside Combined                        21.5%    2.29x      3.5yr
+
+======================================================================
+SECTION 4: BREAKEVEN ANALYSIS
+----------------------------------------------------------------------
+Breakeven Price Factor: 55% of strip
+At strip oil ~$70/bbl: Breakeven ≈ $38/bbl
+10% IRR Floor Factor:   81% of strip ($57/bbl)
+
+======================================================================
+SECTION 5: KEY RISKS & CRITIQUE SUMMARY
+----------------------------------------------------------------------
+
+STRUCTURAL RISKS:
+1. Operator Concentration: Top 2 operators (AA, BB) = 74% of NAV
+   → Single operator failure significantly impacts returns
+
+2. Undeveloped Reliance: 0.4x of 1.94x ROI (21%) from Undeveloped reserves
+   → Requires commodity prices to justify drilling economics
+   → Regulatory risk (Colorado 2,000' setback rules) affects APD/Undeveloped
+
+3. Gas Exposure: 40% of reserves are natural gas
+   → Gas prices uncorrelated with oil; basis differentials in DJ Basin
+   → Current gas oversupply may persist
+
+4. Terminal Value Sensitivity: Exit value assumptions drive ~8-10% of ROI
+   → Highly dependent on commodity environment at year 10
+   → Mineral M&A multiples can compress in down markets
+
+TIMING RISK ANALYSIS:
+- Development delays shift cash flows right, destroying IRR via time value
+- Key delay sources: permitting (APD/Undeveloped), operator capital allocation,
+  supply chain constraints (frac crews, rigs), price-driven deferrals
+- 1-year delay: ~4% IRR reduction
+- 2-year delay: ~7% IRR reduction
+- Risk is concentrated in APD (40% delay prob) and Undeveloped (50% delay prob)
+
+DECLINE CURVE STEEPENING RISK:
+- DJ Basin wells may decline faster than type curves due to:
+  • Parent-child well interference from infill drilling
+  • Tighter spacing than reservoir can support
+  • Reservoir pressure depletion across formations
+  • Completion quality variation
+- Steepening from b=0.9 to b=0.6: ~3-4% IRR reduction
+- Severe steepening (b=0.45): ~6-8% IRR reduction
+- Industry data shows ~20-30% of wells underperform type curves
+
+COMBINED RISK SCENARIOS:
+- Mild combined stress (price -15%, 1yr delay): IRR ~11-13%
+- Moderate combined stress (price -20%, steep decline): IRR ~8-10%
+- Severe combined stress (all three factors): IRR ~3-5% or negative
+
+MODEL IMPROVEMENTS (This Version):
++ Timing risk simulation with category-specific delay probabilities
++ Decline curve steepening with stochastic b-factor and Di
++ Combined risk Monte Carlo integrating price + timing + decline
++ Loss attribution to identify dominant risk factors
++ Hyperbolic decline (Arps equation) vs. linear decay
++ Independent terminal value estimation vs. circular calculation
++ Oil/Gas/NGL separate simulation with correlations
++ Mean-reverting price process (Ornstein-Uhlenbeck)
+
+======================================================================
+END OF ANALYSIS
+======================================================================
+
+Process finished with exit code 0
