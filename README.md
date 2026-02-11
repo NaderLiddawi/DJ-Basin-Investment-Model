@@ -34,7 +34,7 @@ Each Python file owns one “layer” of this pipeline.
 
 ---
 
-# FILE-BY-FILE: WHAT EACH MODULE DOES (AND WHY)
+# FILE-BY-FILE: WHAT EACH MODULE DOES 
 
 ## `main.py` — Orchestrator / One-Run Execution
 **Role:** Runs the entire analysis end-to-end in the correct order: base case → Monte Carlo → scenarios → breakeven → charts.
@@ -58,7 +58,7 @@ python main.py
 ## `yield_curve.py` — Reconstructs the 10-Year Yield Curve (Front-Loaded, Convex)
 **Role:** Generates the 10-year **annual yield curve** that represents expected cash yield (as a fraction of invested capital) by year.
 
-### What “front-loaded, convex yield curve” means (plain English)
+### What “front-loaded, convex yield curve” means 
 A yield curve is “front-loaded” when **a large portion of total cash arrives early** (Years 1–3, 1–5). It is “convex” in the sense that **the timing is heavily weighted toward early years**, and then progressively decays. That matters because:
 
 - Early cash has higher economic value than late cash (time value of money).
@@ -95,7 +95,7 @@ Oil, gas, and NGL prices are correlated. You need correlated random shocks to av
 ## `stochastic_decline_curve.py` — Decline-Curve Steepening Risk (b-factor & Di)
 **Role:** Randomly perturbs decline curve parameters to reflect uncertainty in how production decays versus expectations.
 
-### “Steepening” in plain English
+### “Steepening”
 A “steeper” decline means production drops faster than expected—cash comes in earlier but may be lower total, and the tail cash flows weaken. In this model, steepening is represented primarily by a lower **b-factor** and changes in **Di**.
 
 ---
@@ -151,13 +151,13 @@ This module is explicitly framed as sensitivity/education because deck NAV value
 
 ---
 
-# CORE METRICS: HOW THEY ARE CALCULATED (AND WHY THEY MATTER)
+# CORE METRICS: HOW THEY ARE CALCULATED AND WHY THEY MATTER
 
 ## 1) IRR (Internal Rate of Return)
-### Definition (plain English)
+### Definition
 IRR is the single annualized rate that makes the **present value** of all cash flows equal zero. In other words, it is the rate where “what you paid” equals “what you got back,” after discounting.
 
-### Mathematical definition (lightweight)
+### Mathematical definition
 IRR solves for `r` such that:
 
 \[
@@ -188,7 +188,7 @@ Why it was chosen here:
 ---
 
 ## 2) ROI (Return on Investment / MOIC)
-### Definition (plain English)
+### Definition 
 ROI here is essentially “multiple of invested capital”: total dollars returned divided by dollars invested.
 
 ### Implementation
@@ -202,7 +202,7 @@ This is intuitive: ROI tells you “how many times your money you got back,” b
 ---
 
 ## 3) Payback Period
-### Definition (plain English)
+### Definition
 Payback is the time when cumulative cash flows turn from negative to non-negative.
 
 Implementation:
